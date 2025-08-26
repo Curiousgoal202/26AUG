@@ -35,14 +35,6 @@ environment {
                 }
             }
         }
-                       stage('Stop Old Container'){
-                           steps {
-                             sh """
-                                 docker stop webserver || true
-                                 docker rm webserver || true
-                               """
-                                }
-                            }
                        stage('Run New Container'){
                              steps{
                                 sh """
