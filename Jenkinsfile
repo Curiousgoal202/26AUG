@@ -19,7 +19,7 @@ environment {
    
                       stage('Build Docker Image'){
                         steps{
-                            sh "docker built -t $IMAGE_NAME:$IMAGE_TAG ."
+                            sh "docker build -t $IMAGE_NAME:$IMAGE_TAG ."
                            }
                           }
                        stage('Push Docker Image'){
