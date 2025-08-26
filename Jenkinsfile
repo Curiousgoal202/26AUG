@@ -18,14 +18,17 @@ environment {
                        }
                  stage('Build'){
                    steps{
+                    dir('server1'){
                         sh 'mvn clean package'
                          }
                     }
+               }
                  stage('Test'){
-                    steps{
+                    steps{ dir('server1') {
                         sh 'mvn test'
                         }
                       }
+                  }
                   stage('Code Quality Check'){
                     steps{
                         sh 'echo "No html linter configured"'
