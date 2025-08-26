@@ -35,14 +35,20 @@ environment {
                 }
             }
         }
-                       stage('Run New Container'){
-                             steps{
-                                sh """
-                                  docker run -d --name webserver -p $SERVER_PORT:80 $IMAGE_NAME:$IMAGE_TAG
-                                 """
-                               }
-                            }
- 
+                 stage('Run New Container') {
+    steps {
+        script {
+            sh """
+                # Stop and remove old container if exists
+                docker ps -a -q --filter name=webserver | grep -q . && docker stop webserver && docker rm webserver || true
+
+                # Run new container
+                docker run -d --name webserver -p 8085:80 server1:latest
+            """
+        }
+    }
+}
+
             
     }
 
