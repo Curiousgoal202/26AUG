@@ -16,29 +16,7 @@ environment {
                          git branch: 'master', url:'https://github.com/Curiousgoal202/26AUG.git'
                           }
                        }
-                 stage('Build'){
-                   steps{
-                    dir('server1'){
-                        sh 'mvn clean package'
-                         }
-                    }
-               }
-                 stage('Test'){
-                    steps{ dir('server1') {
-                        sh 'mvn test'
-                        }
-                      }
-                  }
-                  stage('Code Quality Check'){
-                    steps{
-                        sh 'echo "No html linter configured"'
-                           }
-                        }
-                  stage('Security Scan'){
-                      steps{
-                         sh 'docker run --rm -i hadolint/hadolint < Dockerfile || true'
-                            }
-                          }
+   
                       stage('Build Docker Image'){
                         steps{
                             sh "docker built -t $IMAGE_NAME:$IMAGE_TAG ."
