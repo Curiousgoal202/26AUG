@@ -3,13 +3,13 @@ pipeline {
        tools {
                maven 'Maven3'
              }
-        environments {
-               REGISTRY = "docker.io"
-               IMAGE_NAME = "server1"
-              IMAGE_TAG = "latest"
-             DOCKERHUB_CREDENTIALS = "creds"
-            SERVER_PORT = "8085"
-             }
+environment {
+    REGISTRY = "docker.io"
+    IMAGE_NAME = "server1"
+    IMAGE_TAG = "latest"
+    DOCKERHUB_CREDENTIALS = "creds"
+    SERVER_PORT = "8085"
+}
            stages {
                  stage('checkout'){
                    steps{
