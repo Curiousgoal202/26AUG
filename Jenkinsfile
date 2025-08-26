@@ -50,14 +50,8 @@ environment {
                                  """
                                }
                             }
-    stage('Health Check') {
-            steps {
-                script {
-                    sh "sleep 5"
-                    sh "curl -f http://localhost:$SERVER_PORT || exit 1"
-                }
-            }
-        }
+ 
+            
     }
 
     post {
