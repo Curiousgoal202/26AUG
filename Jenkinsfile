@@ -13,7 +13,7 @@ environment {
            stages {
                  stage('checkout'){
                    steps{
-                         git branch: 'main', url:'https://github.com/Curiousgoal202/26AUG.git'
+                         git branch: 'master', url:'https://github.com/Curiousgoal202/26AUG.git'
                           }
                        }
                  stage('Build'){
